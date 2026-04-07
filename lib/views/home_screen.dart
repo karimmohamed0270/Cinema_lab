@@ -1,4 +1,4 @@
-import 'package:cinema_lab/widgets/film_card.dart';
+import 'package:cinema_lab/widgets/filmcardfuturebuilder.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -24,22 +24,7 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
 
-      body: GridView.builder(
-        itemCount: 21,
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-          //  to make the cards taller
-          childAspectRatio: 0.6,
-          // vertical space
-        ),
-        itemBuilder: (context, index) {
-          return FilmCard(
-            imageUrl: 'assets/images/film.png',
-            title: 'Film Title',
-            rating: 4.5,
-          );
-        },
-      ),
+      body: const Filmcardfuturebuilder(),
     );
   }
 }

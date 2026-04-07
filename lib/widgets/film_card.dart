@@ -1,16 +1,10 @@
+import 'package:cinema_lab/models/film_card.dart';
 import 'package:flutter/material.dart';
 
 class FilmCard extends StatelessWidget {
-  final String imageUrl;
-  final String title;
-  final double rating;
+  final FilmCardModel film;
 
-  const FilmCard({
-    super.key,
-    required this.imageUrl,
-    required this.title,
-    required this.rating,
-  });
+  const FilmCard({super.key, required this.film});
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +30,9 @@ class FilmCard extends StatelessWidget {
                   topLeft: Radius.circular(12),
                   topRight: Radius.circular(12),
                 ),
-                child: Image.asset(
-                  imageUrl,
+                child: Image.network(
+                  film.imageUrl ??
+                      'https://tse1.mm.bing.net/th/id/OIP.4qkh3f1HliC2rFVbHScLjwHaKe?rs=1&pid=ImgDetMain&o=7&rm=3',
                   width: double.infinity,
                   // height: double.infinity,
                   fit: BoxFit.cover,
@@ -52,7 +47,7 @@ class FilmCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    title,
+                    film.title ?? 'Unknown Title',
                     style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -66,7 +61,7 @@ class FilmCard extends StatelessWidget {
                       const Icon(Icons.star, color: Colors.amber, size: 16),
                       const SizedBox(width: 4),
                       Text(
-                        rating.toString(),
+                        film.rating.toString(),
                         style: const TextStyle(fontSize: 14),
                       ),
                     ],

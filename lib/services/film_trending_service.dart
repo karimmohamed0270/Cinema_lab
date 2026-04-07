@@ -2,14 +2,15 @@ import 'package:cinema_lab/models/film_card.dart';
 import 'package:dio/dio.dart';
 
 class FilmTrendingService {
+  String apiKey = 'tsY_UPLbyfFitorbjr28IlTlIi8EjNYlYB7E8uZ1CgM';
   final dio = Dio();
 
   FilmTrendingService();
 
   Future<List<FilmCardModel>> fetchTrendingFilms() async {
-    //  1
+    //  1 key
     Response response = await dio.get(
-      'https://xmdbapi.com/api/v1/trending?apiKey=tsY_UPLbyfFitorbjr28IlTlIi8EjNYlYB7E8uZ1CgM',
+      'https://xmdbapi.com/api/v1/trending?apiKey=tsY_UPLbyfFitorbjr28IlTlIi8EjNYlYB7E8uZ1CgM&count=50',
     );
 
     // 2 all data
@@ -21,13 +22,9 @@ class FilmTrendingService {
     // 4 convert data to list of FilmCardModel
     List<FilmCardModel> filmCards = films.map((film) {
       return FilmCardModel(
-        imageUrl: film['poster_path'] != null
-            ? 'https://image.tmdb.org/t/p/w500${film['poster_path']}'
-            : null,
-        title: film['title'] ?? 'No Title',
-        rating: (film['rating'] != null)
-            ? (film['rating'] as num).toDouble()
-            : 0.0,
+        imageUrl: film['poster_url'],
+        title: film['title'],
+        rating: (film['rating']),
       );
     }).toList();
 
