@@ -23,6 +23,9 @@ class SearchScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12.0),
           child: TextField(
+            onSubmitted: (value) {
+              // Handle search logic here
+            },
             decoration: InputDecoration(
               hintText: 'Search for movies...',
               prefixIcon: Icon(Icons.search),
