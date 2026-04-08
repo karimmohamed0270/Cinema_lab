@@ -1,3 +1,4 @@
+import 'package:cinema_lab/views/search_screen.dart';
 import 'package:cinema_lab/widgets/filmcardfuturebuilder.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,15 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Expanded(child: SizedBox()),
-            IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+            IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SearchScreen()),
+                );
+              },
+              icon: Icon(Icons.search),
+            ),
           ],
         ),
       ),
