@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:cinema_lab/get_film_cubit/get_film_cubit_states.dart';
 import 'package:cinema_lab/models/search_film.dart';
 import 'package:cinema_lab/services/search_film_service.dart';
@@ -12,6 +14,7 @@ class GetFilmCubit extends Cubit<FilmState> {
   getfilm({required String filmName}) async {
     //  step 7 pass data to the loaded state to use it in the ui
     final SearchFilmModel filmModel;
+    emit(NoFilmState());
 
     try {
       // here you will call the api to get the film data
