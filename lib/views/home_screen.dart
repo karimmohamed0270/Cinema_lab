@@ -1,3 +1,4 @@
+import 'package:cinema_lab/views/result_screen.dart';
 import 'package:cinema_lab/views/search_screen.dart';
 import 'package:cinema_lab/widgets/filmcardfuturebuilder.dart';
 import 'package:flutter/material.dart';
