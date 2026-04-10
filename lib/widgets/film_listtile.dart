@@ -8,18 +8,29 @@ class FilmListtile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: AspectRatio(
-        aspectRatio: 1.6,
-        child: Image.network(film.imageUrl, fit: BoxFit.fill),
+    return Container(
+      // color: const Color.fromARGB(179, 196, 196, 196),
+      margin: const EdgeInsets.symmetric(horizontal: 6, vertical: 8),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        color: const Color.fromARGB(255, 101, 181, 247),
       ),
-      title: Text(film.name),
-      subtitle: Text(
-        film.description,
-        maxLines: 3,
-        overflow: TextOverflow.ellipsis,
+      child: ListTile(
+        leading: AspectRatio(
+          aspectRatio: 1.6,
+          child: Image.network(film.imageUrl, fit: BoxFit.fill),
+        ),
+        title: Text(film.name, style: TextStyle(fontWeight: FontWeight.bold)),
+        subtitle: Text(
+          film.description,
+          maxLines: 3,
+          overflow: TextOverflow.ellipsis,
+        ),
+        trailing: Text(
+          film.year.toString(),
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
       ),
-      trailing: Text(film.year.toString()),
     );
   }
 }

@@ -1,21 +1,31 @@
 import 'package:cinema_lab/get_film_cubit/get_film_cubit.dart';
 import 'package:cinema_lab/views/home_screen.dart';
+import 'package:cinema_lab/views/landing-page.dart';
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(DevicePreview(enabled: true, builder: (context) => const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => GetFilmCubit(),
-      child: MaterialApp(home: HomeScreen(), debugShowCheckedModeBanner: false),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+
+        /// Important for device preview
+        useInheritedMediaQuery: true,
+        builder: DevicePreview.appBuilder,
+        locale: DevicePreview.locale(context),
+
+        home: LandingPage(),
+      ),
     );
   }
 }
