@@ -1,16 +1,23 @@
-# cinema_lab
+#  Cinema Lab
 
-A new Flutter project.
+Cinema Lab is a Flutter movie app that lets users search for movies and explore trending films using a real-time API.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+##  Features
+- Search movies instantly  
+- View trending films  
+- Movie details page  
+- Clean UI  
+- Smooth navigation 
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+##  Tech Stack
+- Flutter  
+- Dart  
+- Bloc/Cubit  
+- REST API (Dio)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+#Demo
+https://drive.google.com/file/d/1Hs2cgi6b4O8Ttg-AszT6lA0NWHnO8mAC/view?usp=sharing
